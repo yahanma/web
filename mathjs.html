@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.4.1/math.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <header>
+        <h1>mathjs examples</h1>
+    </header>
+
+    <label>simplify</label>
+    <input type="text" id="input" placeholder="enter equation"> <br>
+    <button type="button" class="btn btn-info" onclick="simplify()">simplify</button>
+    <button type="button" title="can also be used for unit conversion" class="btn btn-info" onclick="eval()">evaluate</button>
+    <button type="button" class="btn btn-info" onclick="der()">derivative</button>
+    <button type="button" class="btn btn-info" onclick="fract()">fraction</button>
+    <br>
+    <label>x value</label>
+    <input type="text" id="xvalue" placeholder="x value for evaluation"><br>
+    <button type="button" class="btn btn-info" onclick="evaluate()">evaluate</button>
+    <br><br>
+    <div id="res">
+    </div>
+    <br>
+ 
+</div> 
+
+<script>
+  res=document.getElementById("res")
+  function simplify(){
+//    var c=getvalue()
+    res.innerHTML=math.simplify(document.getElementById("input").value);
+  }
+  function eval(){
+    res.innerHTML=math.eval(document.getElementById("input").value);
+  }
+  function der(){
+    res.innerHTML=math.derivative(document.getElementById("input").value,'x');
+  }
+  function fract(){
+    math.config({
+      number: 'Fraction' // Default type of number:
+  // 'number' (default), 'BigNumber', or 'Fraction'
+    })
+    res.innerHTML=math.fraction(document.getElementById("input").value);
+  }
+  function evaluate(){
+    const f = math.parse('2x + x')
+    const simplified = math.simplify(f)
+    res.innerHTML=simplified.eval({ x: 4 }) // 12
+    var c=document.getElementById("xvalue")
+//    res.innerHTML=math.simplify(document.getElementById("input").value).eval({ x: 4 });
+//    res.innerHTML=math.simplify(document.getElementById("input").value,{x: parseFloat(c.value)});
+  }
+  </script>
+
+</body>
+</html>
+ 
