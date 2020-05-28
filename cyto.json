@@ -36,6 +36,13 @@
             },
             {
             "data": {
+            "id": "de",
+                    "source": "d",
+                    "target": "e"
+            }
+            },
+            {
+            "data": {
             "id": "ef",
                     "source": "e",
                     "target": "f"
