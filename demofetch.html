@@ -22,7 +22,7 @@
 		<script>
 				var cy = cytoscape({
 					container: document.getElementById('cy'),
-					elements: fetch('cyto.json'),
+					elements: fetch('cyto.json').then(function( res ){ return res.json(); }),
 					style: [
 						{
 							selector: 'node',
